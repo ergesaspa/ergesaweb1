@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ergesa SPA - Innovación en Minería, Energía y Medio Ambiente</title>
+    <meta name="description" content="Desarrollamos oportunidades de negocio en Chile para los sectores minero, energético y medioambiental con soluciones tecnológicas avanzadas." />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0, 119, 204, 0.7), rgba(0, 119, 204, 0.7)), url('https://images.unsplash.com/photo-1483638867541-6d87ce7f2d4d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            font-weight: 300;
+        }
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 14px 28px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,119,204,0.3);
+        }
+        .btn:hover {
+            background-color: #005fa3;
+            transform: translateY(-2px);
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+        nav li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #0077cc;
+        }
+        .lang-selector {
+            margin-right: 20px;
+            padding: 8px 12px;
+            background: transparent;
+            color: white;
+            border: 1px solid #0077cc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .lang-selector option {
+            background: #222;
+            color: white;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        #sobre {
+            background: #fff;
+        }
+        #servicios {
+            background: #f8f9fa;
+        }
+        #sectores {
+            background: #fff;
+        }
+        #contacto {
+            background: #f8f9fa;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #0077cc;
+            font-weight: 300;
+        }
+        .services, .sectors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            color: #0077cc;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .card::before {
+            content: '⚡'; /* Placeholder icono tech; reemplaza con SVG */
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .sectors .card:nth-child(1)::before { content: '⛏️'; }
+        .sectors .card:nth-child(2)::before { content: '⚡'; }
+        .sectors .card:nth-child(3)::before { content: '🌿'; }
+        .sectors .card:nth-child(4)::before { content: '🛡️'; }
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 0;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
+            nav ul { flex-direction: column; }
+            nav li { margin: 10px 0; }
+            .lang-selector { margin: 10px; }
+            .logo { width: 100px; }
+            nav { flex-direction: column; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="Logo.png" alt="Ergesa Logo" class="logo">
+        <ul>
+            <li><a href="#sobre" data-lang-key="nav-about">Sobre Nosotros</a></li>
+            <li><a href="#servicios" data-lang-key="nav-services">Servicios</a></li>
+            <li><a href="#sectores" data-lang-key="nav-sectors">Sectores</a></li>
+            <li><a href="#contacto" data-lang-key="nav-contact">Contacto</a></li>
+        </ul>
+        <select class="lang-selector" id="langSelect">
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+        </select>
+    </nav>
+    <header>
+        <h1 data-lang-key="header-title">Ergesa SPA</h1>
+        <p data-lang-key="header-desc">Desarrolla nuevas oportunidades de negocio en Chile identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.</p>
+        <p data-lang-key="header-subtitle">Consultoría • Innovación • Oportunidades de negocio</p>
+        <a href="#contacto" class="btn" data-lang-key="btn-contact">Contáctanos</a>
+    </header>
+    <section id="sobre">
+        <h2 data-lang-key="about-title">Sobre Nosotros</h2>
+        <p data-lang-key="about-desc" style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto;">Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en el mercado chileno. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.</p>
+    </section>
+    <section id="servicios">
+        <h2 data-lang-key="services-title">Servicios</h2>
+        <div class="services">
+            <div class="card">
+                <h3 data-lang-key="service1-title">Desarrollo de oportunidades de negocio</h3>
+                <p data-lang-key="service1-desc">Identificación de oportunidades, análisis de mercado, reuniones ejecutivas y apoyo en la incorporación de nuevas tecnologías en minería, energía y medio ambiente.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="service2-title">Consultorías especializadas</h3>
+                <p data-lang-key="service2-desc">Consultorías técnicas y estratégicas en monitoreo, innovación, evaluación de tecnologías, gestión operacional, relaves, agua, drones, sensores, robótica e IoT.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="service3-title">Representación comercial</h3>
+                <p data-lang-key="service3-desc">Apoyo a empresas extranjeras en su ingreso a Chile, búsqueda de clientes, reuniones clave, apoyo técnico-comercial y acompañamiento en terreno.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="service4-title">Proyectos e Innovación</h3>
+                <p data-lang-key="service4-desc">Implementación de soluciones tecnológicas, pilotos, automatización, drones pesados, inspección industrial, monitoreo de relaves y tratamiento de agua.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="service5-title">Importación y representación en defensa</h3>
+                <p data-lang-key="service5-desc">Importación de instrumentos especializados y nuevas tecnologías para el sector de defensa, con asesoría en cumplimiento normativo y alianzas estratégicas.</p>
+            </div>
+        </div>
+    </section>
+    <section id="sectores">
+        <h2 data-lang-key="sectors-title">Sectores</h2>
+        <div class="sectors">
+            <div class="card">
+                <h3 data-lang-key="sector1-title">Minería</h3>
+                <p data-lang-key="sector1-desc">Innovación operativa, monitoreo de relaves, sensores, drones, transporte de agua y minerales.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="sector2-title">Energía</h3>
+                <p data-lang-key="sector2-desc">Soluciones en energías renovables, almacenamiento, transmisión, eficiencia energética y digitalización.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="sector3-title">Medio ambiente</h3>
+                <p data-lang-key="sector3-desc">Gestión ambiental, control de riesgos, monitoreo hídrico, tecnologías de sustentabilidad.</p>
+            </div>
+            <div class="card">
+                <h3 data-lang-key="sector4-title">Defensa</h3>
+                <p data-lang-key="sector4-desc">Importación de instrumentos especializados y nuevas tecnologías para operaciones de defensa y seguridad.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contacto">
+        <h2 data-lang-key="contact-title">Contacto</h2>
+        <p data-lang-key="contact-desc" style="text-align:center;font-size:1.2rem;margin-bottom:30px;">Para más información o consultas, escríbenos directamente.<br><strong>ergesa.spa@gmail.com</strong></p>
+    </section>
+    <footer>
+        <p data-lang-key="footer">© 2025 Ergesa SPA — Santiago, Chile | Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // Traducciones
+        const translations = {
+            es: {
+                'header-title': 'Ergesa SPA',
+                'header-desc': 'Desarrolla nuevas oportunidades de negocio en Chile identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.',
+                'header-subtitle': 'Consultoría • Innovación • Oportunidades de negocio',
+                'btn-contact': 'Contáctanos',
+                'nav-about': 'Sobre Nosotros',
+                'nav-services': 'Servicios',
+                'nav-sectors': 'Sectores',
+                'nav-contact': 'Contacto',
+                'about-title': 'Sobre Nosotros',
+                'about-desc': 'Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en el mercado chileno. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.',
+                'services-title': 'Servicios',
+                'service1-title': 'Desarrollo de oportunidades de negocio',
+                'service1-desc': 'Identificación de oportunidades, análisis de mercado, reuniones ejecutivas y apoyo en la incorporación de nuevas tecnologías en minería, energía y medio ambiente.',
+                'service2-title': 'Consultorías especializadas',
+                'service2-desc': 'Consultorías técnicas y estratégicas en monitoreo, innovación, evaluación de tecnologías, gestión operacional, relaves, agua, drones, sensores, robótica e IoT.',
+                'service3-title': 'Representación comercial',
+                'service3-desc': 'Apoyo a empresas extranjeras en su ingreso a Chile, búsqueda de clientes, reuniones clave, apoyo técnico-comercial y acompañamiento en terreno.',
+                'service4-title': 'Proyectos e Innovación',
+                'service4-desc': 'Implementación de soluciones tecnológicas, pilotos, automatización, drones pesados, inspección industrial, monitoreo de relaves y tratamiento de agua.',
+                'service5-title': 'Importación y representación en defensa',
+                'service5-desc': 'Importación de instrumentos especializados y nuevas tecnologías para el sector de defensa, con asesoría en cumplimiento normativo y alianzas estratégicas.',
+                'sectors-title': 'Sectores',
+                'sector1-title': 'Minería',
+                'sector1-desc': 'Innovación operativa, monitoreo de relaves, sensores, drones, transporte de agua y minerales.',
+                'sector2-title': 'Energía',
+                'sector2-desc': 'Soluciones en energías renovables, almacenamiento, transmisión, eficiencia energética y digitalización.',
+                'sector3-title': 'Medio ambiente',
+                'sector3-desc': 'Gestión ambiental, control de riesgos, monitoreo hídrico, tecnologías de sustentabilidad.',
+                'sector4-title': 'Defensa',
+                'sector4-desc': 'Importación de instrumentos especializados y nuevas tecnologías para operaciones de defensa y seguridad.',
+                'contact-title': 'Contacto',
+                'contact-desc': 'Para más información o consultas, escríbenos directamente.<br><strong>ergesa.spa@gmail.com</strong>',
+                'footer': '© 2025 Ergesa SPA — Santiago, Chile | Todos los derechos reservados.'
+            },
+            en: {
+                'header-title': 'Ergesa SPA',
+                'header-desc': 'Develop new business opportunities in Chile by identifying, promoting, and implementing solutions in the mining, energy, and environmental sectors.',
+                'header-subtitle': 'Consulting • Innovation • Business Opportunities',
+                'btn-contact': 'Contact Us',
+                'nav-about': 'About Us',
+                'nav-services': 'Services',
+                'nav-sectors': 'Sectors',
+                'nav-contact': 'Contact',
+                'about-title': 'About Us',
+                'about-desc': 'Ergesa SPA is a Chilean company dedicated to developing business opportunities and strategic advisory for national and international companies interested in operating or expanding in the Chilean market. We work in the mining, energy, and environmental sectors, integrating technical experience, market analysis, and technological alliances.',
+                'services-title': 'Services',
+                'service1-title': 'Business Opportunities Development',
+                'service1-desc': 'Identification of opportunities, market analysis, executive meetings, and support in incorporating new technologies in mining, energy, and environment.',
+                'service2-title': 'Specialized Consultancies',
+                'service2-desc': 'Technical and strategic consultancies in monitoring, innovation, technology evaluation, operational management, tailings, water, drones, sensors, robotics, and IoT.',
+                'service3-title': 'Commercial Representation',
+                'service3-desc': 'Support for foreign companies entering Chile, client search, key meetings, technical-commercial support, and on-site accompaniment.',
+                'service4-title': 'Projects and Innovation',
+                'service4-desc': 'Implementation of technological solutions, pilots, automation, heavy drones, industrial inspection, tailings monitoring, and water treatment.',
+                'service5-title': 'Import and Representation in Defense',
+                'service5-desc': 'Importation of specialized instruments and new technologies for the defense sector, with advice on regulatory compliance and strategic alliances.',
+                'sectors-title': 'Sectors',
+                'sector1-title': 'Mining',
+                'sector1-desc': 'Operational innovation, tailings monitoring, sensors, drones, water and mineral transport.',
+                'sector2-title': 'Energy',
+                'sector2-desc': 'Solutions in renewable energies, storage, transmission, energy efficiency, and digitalization.',
+                'sector3-title': 'Environment',
+                'sector3-desc': 'Environmental management, risk control, water monitoring, sustainability technologies.',
+                'sector4-title': 'Defense',
+                'sector4-desc': 'Importation of specialized instruments and new technologies for defense and security operations.',
+                'contact-title': 'Contact',
+                'contact-desc': 'For more information or inquiries, write to us directly.<br><strong>ergesa.spa@gmail.com</strong>',
+                'footer': '© 2025 Ergesa SPA — Santiago, Chile | All rights reserved.'
+            },
+            pt: {
+                'header-title': 'Ergesa SPA',
+                'header-desc': 'Desenvolva novas oportunidades de negócios no Chile identificando, promovendo e implementando soluções nos setores de mineração, energia e meio ambiente.',
+                'header-subtitle': 'Consultoria • Inovação • Oportunidades de Negócios',
+                'btn-contact': 'Entre em Contato',
+                'nav-about': 'Sobre Nós',
+                'nav-services': 'Serviços',
+                'nav-sectors': 'Setores',
+                'nav-contact': 'Contato',
+                'about-title': 'Sobre Nós',
+                'about-desc': 'A Ergesa SPA é uma empresa chilena dedicada ao desenvolvimento de oportunidades de negócios e à consultoria estratégica para empresas nacionais e internacionais interessadas em operar ou expandir no mercado chileno. Trabalhamos nos setores de mineração, energia e meio ambiente, integrando experiência técnica, análise de mercado e alianças tecnológicas.',
+                'services-title': 'Serviços',
+                'service1-title': 'Desenvolvimento de Oportunidades de Negócios',
+                'service1-desc': 'Identificação de oportunidades, análise de mercado, reuniões executivas e suporte na incorporação de novas tecnologias em mineração, energia e meio ambiente.',
+                'service2-title': 'Consultorias Especializadas',
+                'service2-desc': 'Consultorias técnicas e estratégicas em monitoramento, inovação, avaliação de tecnologias, gestão operacional, rejeitos, água, drones, sensores, robótica e IoT.',
+                'service3-title': 'Representação Comercial',
+                'service3-desc': 'Suporte a empresas estrangeiras na entrada no Chile, busca de clientes, reuniões chave, suporte técnico-comercial e acompanhamento em campo.',
+                'service4-title': 'Projetos e Inovação',
+                'service4-desc': 'Implementação de soluções tecnológicas, pilotos, automação, drones pesados, inspeção industrial, monitoramento de rejeitos e tratamento de água.',
+                'service5-title': 'Importação e Representação em Defesa',
+                'service5-desc': 'Importação de instrumentos especializados e novas tecnologias para o setor de defesa, com assessoria em conformidade normativa e alianças estratégicas.',
+                'sectors-title': 'Setores',
+                'sector1-title': 'Mineração',
+                'sector1-desc': 'Inovação operacional, monitoramento de rejeitos, sensores, drones, transporte de água e minerais.',
+                'sector2-title': 'Energia',
+                'sector2-desc': 'Soluções em energias renováveis, armazenamento, transmissão, eficiência energética e digitalização.',
+                'sector3-title': 'Meio Ambiente',
+                'sector3-desc': 'Gestão ambiental, controle de riscos, monitoramento hídrico, tecnologias de sustentabilidade.',
+                'sector4-title': 'Defesa',
+                'sector4-desc': 'Importação de instrumentos especializados e novas tecnologias para operações de defesa e segurança.',
+                'contact-title': 'Contato',
+                'contact-desc': 'Para mais informações ou consultas, escreva-nos diretamente.<br><strong>ergesa.spa@gmail.com</strong>',
+                'footer': '© 2025 Ergesa SPA — Santiago, Chile | Todos os direitos reservados.'
+            }
+        };
+
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            // Actualizar títulos de sección para SEO (opcional)
+            document.title = translations[lang]['header-title'] + ' - ' + (lang === 'es' ? 'Innovación en Minería, Energía y Medio Ambiente' : lang === 'en' ? 'Innovation in Mining, Energy and Environment' : 'Inovação em Mineração, Energia e Meio Ambiente');
+        }
+
+        // Event listener para el selector
+        document.getElementById('langSelect').addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Inicializar en ES
+        changeLanguage('es');
+    </script>
+</body>
+</html>
