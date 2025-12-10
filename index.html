@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ergesa SPA - Innovación en Minería, Energía y Medio Ambiente</title>
-    <meta name="description" content="Desarrollamos oportunidades de negocio en Chile para los sectores minero, energético y medioambiental con soluciones tecnológicas avanzadas." />
+    <title>Ergesa SPA - Innovación en Minería, Energía y Medio Ambiente en Chile y Latam</title>
+    <meta name="description" content="Desarrollamos oportunidades de negocio en Chile y Latam para los sectores minero, energético y medioambiental con soluciones tecnológicas avanzadas." />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -107,8 +107,16 @@
             background: #222;
             color: white;
         }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
         section {
-            padding: 80px 20px;
+            padding: 100px 20px 80px; /* Aumentado top para nav fija */
             max-width: 1200px;
             margin: auto;
         }
@@ -170,41 +178,127 @@
             padding: 40px;
             margin-top: 0;
         }
+
+        /* Media Query para Móvil (mejorado) */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            header p { font-size: 1.1rem; }
-            nav ul { flex-direction: column; }
-            nav li { margin: 10px 0; }
-            .lang-selector { margin: 10px; }
-            .logo { width: 100px; }
-            nav { flex-direction: column; padding: 10px; }
+            header {
+                height: 60vh; /* Reducido para móvil */
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            nav {
+                padding: 10px;
+                flex-wrap: wrap;
+            }
+            .logo {
+                width: 100px;
+                order: 1;
+            }
+            .menu-toggle {
+                display: block;
+                order: 3;
+                margin-left: auto;
+            }
+            nav ul {
+                display: none; /* Oculto por defecto en móvil */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: rgba(0,0,0,0.9);
+                padding: 10px 0;
+            }
+            nav ul.show {
+                display: flex; /* Muestra al activar */
+            }
+            nav li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .lang-selector {
+                order: 2;
+                margin: 5px auto;
+                width: auto;
+            }
+            section {
+                padding: 120px 10px 60px; /* Ajustado para móvil */
+            }
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            .services, .sectors {
+                gap: 20px;
+                grid-template-columns: 1fr; /* Fuerza 1 columna en móvil */
+            }
+            .card {
+                padding: 20px;
+            }
+            .card h3 {
+                font-size: 1.3rem;
+            }
+            .card::before {
+                font-size: 2.5rem;
+            }
+            footer {
+                padding: 30px 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Para pantallas muy pequeñas (e.g., <480px) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.95rem;
+            }
+            .logo {
+                width: 80px;
+            }
+            nav ul.show {
+                top: 70px; /* Ajuste para nav más compacta */
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <img src="Logo.png" alt="Ergesa Logo" class="logo">
-        <ul>
-            <li><a href="#sobre" data-lang-key="nav-about">Sobre Nosotros</a></li>
-            <li><a href="#servicios" data-lang-key="nav-services">Servicios</a></li>
-            <li><a href="#sectores" data-lang-key="nav-sectors">Sectores</a></li>
-            <li><a href="#contacto" data-lang-key="nav-contact">Contacto</a></li>
-        </ul>
         <select class="lang-selector" id="langSelect">
             <option value="es">Español</option>
             <option value="pt">Português</option>
             <option value="en">English</option>
         </select>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <ul id="navUl">
+            <li><a href="#sobre" data-lang-key="nav-about">Sobre Nosotros</a></li>
+            <li><a href="#servicios" data-lang-key="nav-services">Servicios</a></li>
+            <li><a href="#sectores" data-lang-key="nav-sectors">Sectores</a></li>
+            <li><a href="#contacto" data-lang-key="nav-contact">Contacto</a></li>
+        </ul>
     </nav>
     <header>
         <h1 data-lang-key="header-title">Ergesa SPA</h1>
-        <p data-lang-key="header-desc">Desarrolla nuevas oportunidades de negocio en Chile identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.</p>
+        <p data-lang-key="header-desc">Desarrolla nuevas oportunidades de negocio en Chile y Latam identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.</p>
         <p data-lang-key="header-subtitle">Consultoría • Innovación • Oportunidades de negocio</p>
         <a href="#contacto" class="btn" data-lang-key="btn-contact">Contáctanos</a>
     </header>
     <section id="sobre">
         <h2 data-lang-key="about-title">Sobre Nosotros</h2>
-        <p data-lang-key="about-desc" style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto;">Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en el mercado chileno. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.</p>
+        <p data-lang-key="about-desc" style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto;">Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en los mercados de Chile y Latam. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.</p>
     </section>
     <section id="servicios">
         <h2 data-lang-key="services-title">Servicios</h2>
@@ -260,11 +354,11 @@
         <p data-lang-key="footer">© 2025 Ergesa SPA — Santiago, Chile | Todos los derechos reservados.</p>
     </footer>
     <script>
-        // Traducciones
+        // Traducciones (actualizadas)
         const translations = {
             es: {
                 'header-title': 'Ergesa SPA',
-                'header-desc': 'Desarrolla nuevas oportunidades de negocio en Chile identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.',
+                'header-desc': 'Desarrolla nuevas oportunidades de negocio en Chile y Latam identificando, promoviendo e implementando soluciones en los sectores minero, energético y medioambiental.',
                 'header-subtitle': 'Consultoría • Innovación • Oportunidades de negocio',
                 'btn-contact': 'Contáctanos',
                 'nav-about': 'Sobre Nosotros',
@@ -272,7 +366,7 @@
                 'nav-sectors': 'Sectores',
                 'nav-contact': 'Contacto',
                 'about-title': 'Sobre Nosotros',
-                'about-desc': 'Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en el mercado chileno. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.',
+                'about-desc': 'Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en los mercados de Chile y Latam. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.',
                 'services-title': 'Servicios',
                 'service1-title': 'Desarrollo de oportunidades de negocio',
                 'service1-desc': 'Identificación de oportunidades, análisis de mercado, reuniones ejecutivas y apoyo en la incorporación de nuevas tecnologías en minería, energía y medio ambiente.',
@@ -299,7 +393,7 @@
             },
             en: {
                 'header-title': 'Ergesa SPA',
-                'header-desc': 'Develop new business opportunities in Chile by identifying, promoting, and implementing solutions in the mining, energy, and environmental sectors.',
+                'header-desc': 'Develop new business opportunities in Chile and Latam by identifying, promoting, and implementing solutions in the mining, energy, and environmental sectors.',
                 'header-subtitle': 'Consulting • Innovation • Business Opportunities',
                 'btn-contact': 'Contact Us',
                 'nav-about': 'About Us',
@@ -307,7 +401,7 @@
                 'nav-sectors': 'Sectors',
                 'nav-contact': 'Contact',
                 'about-title': 'About Us',
-                'about-desc': 'Ergesa SPA is a Chilean company dedicated to developing business opportunities and strategic advisory for national and international companies interested in operating or expanding in the Chilean market. We work in the mining, energy, and environmental sectors, integrating technical experience, market analysis, and technological alliances.',
+                'about-desc': 'Ergesa SPA is a Chilean company dedicated to developing business opportunities and strategic advisory for national and international companies interested in operating or expanding in the markets of Chile and Latam. We work in the mining, energy, and environmental sectors, integrating technical experience, market analysis, and technological alliances.',
                 'services-title': 'Services',
                 'service1-title': 'Business Opportunities Development',
                 'service1-desc': 'Identification of opportunities, market analysis, executive meetings, and support in incorporating new technologies in mining, energy, and environment.',
@@ -334,7 +428,7 @@
             },
             pt: {
                 'header-title': 'Ergesa SPA',
-                'header-desc': 'Desenvolva novas oportunidades de negócios no Chile identificando, promovendo e implementando soluções nos setores de mineração, energia e meio ambiente.',
+                'header-desc': 'Desenvolva novas oportunidades de negócios no Chile e Latam identificando, promovendo e implementando soluções nos setores de mineração, energia e meio ambiente.',
                 'header-subtitle': 'Consultoria • Inovação • Oportunidades de Negócios',
                 'btn-contact': 'Entre em Contato',
                 'nav-about': 'Sobre Nós',
@@ -342,7 +436,7 @@
                 'nav-sectors': 'Setores',
                 'nav-contact': 'Contato',
                 'about-title': 'Sobre Nós',
-                'about-desc': 'A Ergesa SPA é uma empresa chilena dedicada ao desenvolvimento de oportunidades de negócios e à consultoria estratégica para empresas nacionais e internacionais interessadas em operar ou expandir no mercado chileno. Trabalhamos nos setores de mineração, energia e meio ambiente, integrando experiência técnica, análise de mercado e alianças tecnológicas.',
+                'about-desc': 'A Ergesa SPA é uma empresa chilena dedicada ao desenvolvimento de oportunidades de negócios e à consultoria estratégica para empresas nacionais e internacionais interessadas em operar ou expandir nos mercados do Chile e Latam. Trabalhamos nos setores de mineração, energia e meio ambiente, integrando experiência técnica, análise de mercado e alianças tecnológicas.',
                 'services-title': 'Serviços',
                 'service1-title': 'Desenvolvimento de Oportunidades de Negócios',
                 'service1-desc': 'Identificação de oportunidades, análise de mercado, reuniões executivas e suporte na incorporação de novas tecnologias em mineração, energia e meio ambiente.',
@@ -379,12 +473,19 @@
                 }
             });
             // Actualizar títulos de sección para SEO (opcional)
-            document.title = translations[lang]['header-title'] + ' - ' + (lang === 'es' ? 'Innovación en Minería, Energía y Medio Ambiente' : lang === 'en' ? 'Innovation in Mining, Energy and Environment' : 'Inovação em Mineração, Energia e Meio Ambiente');
+            document.title = translations[lang]['header-title'] + ' - ' + (lang === 'es' ? 'Innovación en Minería, Energía y Medio Ambiente en Chile y Latam' : lang === 'en' ? 'Innovation in Mining, Energy and Environment in Chile and Latam' : 'Inovação em Mineração, Energia e Meio Ambiente no Chile e Latam');
         }
 
         // Event listener para el selector
         document.getElementById('langSelect').addEventListener('change', (e) => {
             changeLanguage(e.target.value);
+        });
+
+        // Menú hamburguesa para móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navUl = document.getElementById('navUl');
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('show');
         });
 
         // Scroll suave
@@ -394,6 +495,10 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                // Cierra menú en móvil después de click
+                if (window.innerWidth <= 768) {
+                    navUl.classList.remove('show');
+                }
             });
         });
 
