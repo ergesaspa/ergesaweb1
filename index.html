@@ -183,6 +183,8 @@
         .sectors .card:nth-child(2)::before { content: '⚡'; }
         .sectors .card:nth-child(3)::before { content: '🌿'; }
         .sectors .card:nth-child(4)::before { content: '🛡️'; }
+        /* Ocultar ícono en la card de partners (Radaz) */
+        .partners .card::before { content: none; }
         .partner-logo {
             width: 150px;
             height: auto;
@@ -198,6 +200,7 @@
         .partner-link {
             text-decoration: none;
             color: inherit;
+            display: block;
         }
         .partner-link:hover {
             text-decoration: none;
