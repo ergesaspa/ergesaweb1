@@ -129,8 +129,11 @@
         #sectores {
             background: #fff;
         }
-        #contacto {
+        #clientes {
             background: #f8f9fa;
+        }
+        #contacto {
+            background: #fff;
         }
         h2 {
             font-size: 2.5rem;
@@ -139,10 +142,11 @@
             color: #0077cc;
             font-weight: 300;
         }
-        .services, .sectors {
+        .services, .sectors, .partners {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            justify-content: start;
         }
         .card {
             background: white;
@@ -151,6 +155,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            width: 300px; /* Fixed width to match other cards */
         }
         .card:hover {
             transform: translateY(-5px);
@@ -167,10 +172,29 @@
             display: block;
             margin-bottom: 15px;
         }
+        /* Íconos específicos para Servicios */
+        .services .card:nth-child(1)::before { content: '💼'; }
+        .services .card:nth-child(2)::before { content: '🧠'; }
+        .services .card:nth-child(3)::before { content: '🤝'; }
+        .services .card:nth-child(4)::before { content: '🚀'; }
+        .services .card:nth-child(5)::before { content: '🛡️'; }
+        /* Íconos específicos para Sectores */
         .sectors .card:nth-child(1)::before { content: '⛏️'; }
         .sectors .card:nth-child(2)::before { content: '⚡'; }
         .sectors .card:nth-child(3)::before { content: '🌿'; }
         .sectors .card:nth-child(4)::before { content: '🛡️'; }
+        .partner-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease;
+        }
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
         footer {
             background: #1a1a1a;
             color: white;
@@ -178,7 +202,6 @@
             padding: 40px;
             margin-top: 0;
         }
-
         /* Media Query para Móvil (mejorado) */
         @media (max-width: 768px) {
             header {
@@ -238,12 +261,15 @@
                 font-size: 2rem;
                 margin-bottom: 30px;
             }
-            .services, .sectors {
+            .services, .sectors, .partners {
                 gap: 20px;
                 grid-template-columns: 1fr; /* Fuerza 1 columna en móvil */
+                justify-content: center;
             }
             .card {
                 padding: 20px;
+                width: 100%;
+                max-width: 300px;
             }
             .card h3 {
                 font-size: 1.3rem;
@@ -251,12 +277,14 @@
             .card::before {
                 font-size: 2.5rem;
             }
+            .partner-logo {
+                width: 120px;
+            }
             footer {
                 padding: 30px 10px;
                 font-size: 0.9rem;
             }
         }
-
         /* Para pantallas muy pequeñas (e.g., <480px) */
         @media (max-width: 480px) {
             header h1 {
@@ -287,6 +315,7 @@
             <li><a href="#sobre" data-lang-key="nav-about">Sobre Nosotros</a></li>
             <li><a href="#servicios" data-lang-key="nav-services">Servicios</a></li>
             <li><a href="#sectores" data-lang-key="nav-sectors">Sectores</a></li>
+            <li><a href="#clientes" data-lang-key="nav-clients">Clientes y Partners</a></li>
             <li><a href="#contacto" data-lang-key="nav-contact">Contacto</a></li>
         </ul>
     </nav>
@@ -346,6 +375,16 @@
             </div>
         </div>
     </section>
+    <section id="clientes">
+        <h2 data-lang-key="clients-title">Clientes y Partners</h2>
+        <div class="partners">
+            <div class="card">
+                <img src="radaz-logo.png" alt="Radaz Logo" class="partner-logo">
+                <h3>Radaz</h3>
+                <p data-lang-key="partner-radaz-desc">Empresa de tecnología de radares para soluciones avanzadas en minería y energía.</p>
+            </div>
+        </div>
+    </section>
     <section id="contacto">
         <h2 data-lang-key="contact-title">Contacto</h2>
         <p data-lang-key="contact-desc" style="text-align:center;font-size:1.2rem;margin-bottom:30px;">Para más información o consultas, escríbenos directamente.<br><strong>ergesa.spa@gmail.com</strong></p>
@@ -364,6 +403,7 @@
                 'nav-about': 'Sobre Nosotros',
                 'nav-services': 'Servicios',
                 'nav-sectors': 'Sectores',
+                'nav-clients': 'Clientes y Partners',
                 'nav-contact': 'Contacto',
                 'about-title': 'Sobre Nosotros',
                 'about-desc': 'Ergesa SPA es una empresa chilena dedicada al desarrollo de oportunidades de negocio y a la asesoría estratégica para empresas nacionales e internacionales interesadas en operar o expandirse en los mercados de Chile y Latam. Trabajamos en los sectores minero, energético y medioambiental, integrando experiencia técnica, análisis de mercado y alianzas tecnológicas.',
@@ -387,6 +427,8 @@
                 'sector3-desc': 'Gestión ambiental, control de riesgos, monitoreo hídrico, tecnologías de sustentabilidad.',
                 'sector4-title': 'Defensa',
                 'sector4-desc': 'Importación de instrumentos especializados y nuevas tecnologías para operaciones de defensa y seguridad.',
+                'clients-title': 'Clientes y Partners',
+                'partner-radaz-desc': 'Empresa de tecnología de radares para soluciones avanzadas en minería y energía.',
                 'contact-title': 'Contacto',
                 'contact-desc': 'Para más información o consultas, escríbenos directamente.<br><strong>ergesa.spa@gmail.com</strong>',
                 'footer': '© 2025 Ergesa SPA — Santiago, Chile | Todos los derechos reservados.'
@@ -399,6 +441,7 @@
                 'nav-about': 'About Us',
                 'nav-services': 'Services',
                 'nav-sectors': 'Sectors',
+                'nav-clients': 'Clients and Partners',
                 'nav-contact': 'Contact',
                 'about-title': 'About Us',
                 'about-desc': 'Ergesa SPA is a Chilean company dedicated to developing business opportunities and strategic advisory for national and international companies interested in operating or expanding in the markets of Chile and Latam. We work in the mining, energy, and environmental sectors, integrating technical experience, market analysis, and technological alliances.',
@@ -422,6 +465,8 @@
                 'sector3-desc': 'Environmental management, risk control, water monitoring, sustainability technologies.',
                 'sector4-title': 'Defense',
                 'sector4-desc': 'Importation of specialized instruments and new technologies for defense and security operations.',
+                'clients-title': 'Clients and Partners',
+                'partner-radaz-desc': 'Radar technology company for advanced solutions in mining and energy.',
                 'contact-title': 'Contact',
                 'contact-desc': 'For more information or inquiries, write to us directly.<br><strong>ergesa.spa@gmail.com</strong>',
                 'footer': '© 2025 Ergesa SPA — Santiago, Chile | All rights reserved.'
@@ -434,6 +479,7 @@
                 'nav-about': 'Sobre Nós',
                 'nav-services': 'Serviços',
                 'nav-sectors': 'Setores',
+                'nav-clients': 'Clientes e Partners',
                 'nav-contact': 'Contato',
                 'about-title': 'Sobre Nós',
                 'about-desc': 'A Ergesa SPA é uma empresa chilena dedicada ao desenvolvimento de oportunidades de negócios e à consultoria estratégica para empresas nacionais e internacionais interessadas em operar ou expandir nos mercados do Chile e Latam. Trabalhamos nos setores de mineração, energia e meio ambiente, integrando experiência técnica, análise de mercado e alianças tecnológicas.',
@@ -457,12 +503,13 @@
                 'sector3-desc': 'Gestão ambiental, controle de riscos, monitoramento hídrico, tecnologias de sustentabilidade.',
                 'sector4-title': 'Defesa',
                 'sector4-desc': 'Importação de instrumentos especializados e novas tecnologias para operações de defesa e segurança.',
+                'clients-title': 'Clientes e Partners',
+                'partner-radaz-desc': 'Empresa de tecnologia de radares para soluções avançadas em mineração e energia.',
                 'contact-title': 'Contato',
                 'contact-desc': 'Para mais informações ou consultas, escreva-nos diretamente.<br><strong>ergesa.spa@gmail.com</strong>',
                 'footer': '© 2025 Ergesa SPA — Santiago, Chile | Todos os direitos reservados.'
             }
         };
-
         // Función para cambiar idioma
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
@@ -475,19 +522,16 @@
             // Actualizar títulos de sección para SEO (opcional)
             document.title = translations[lang]['header-title'] + ' - ' + (lang === 'es' ? 'Innovación en Minería, Energía y Medio Ambiente en Chile y Latam' : lang === 'en' ? 'Innovation in Mining, Energy and Environment in Chile and Latam' : 'Inovação em Mineração, Energia e Meio Ambiente no Chile e Latam');
         }
-
         // Event listener para el selector
         document.getElementById('langSelect').addEventListener('change', (e) => {
             changeLanguage(e.target.value);
         });
-
         // Menú hamburguesa para móvil
         const menuToggle = document.getElementById('menuToggle');
         const navUl = document.getElementById('navUl');
         menuToggle.addEventListener('click', () => {
             navUl.classList.toggle('show');
         });
-
         // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -501,7 +545,6 @@
                 }
             });
         });
-
         // Inicializar en ES
         changeLanguage('es');
     </script>
