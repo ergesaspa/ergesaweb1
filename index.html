@@ -195,6 +195,13 @@
         .partner-logo:hover {
             transform: scale(1.05);
         }
+        .partner-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .partner-link:hover {
+            text-decoration: none;
+        }
         footer {
             background: #1a1a1a;
             color: white;
@@ -379,13 +386,15 @@
         <h2 data-lang-key="clients-title">Clientes y Partners</h2>
         <div class="partners">
             <div class="card">
-                <!-- Imagen dinámica: prueba varias variantes de nombre hasta que cargue -->
-                <img
-                    alt="Radaz Logo"
-                    class="partner-logo partner-logo-dynamic"
-                    data-filenames='["Radaz.png","radaz.png","RADAZ.png","Radaz.PNG","radaz.PNG"]'
-                >
-                <h3>Radaz</h3>
+                <a href="https://www.radaz.com.br/" class="partner-link" target="_blank" rel="noopener noreferrer">
+                    <!-- Imagen dinámica: prueba varias variantes de nombre hasta que cargue -->
+                    <img
+                        alt="Radaz Logo"
+                        class="partner-logo partner-logo-dynamic"
+                        data-filenames='["Radaz.png","radaz.png","RADAZ.png","Radaz.PNG","radaz.PNG"]'
+                    >
+                    <h3>Radaz</h3>
+                </a>
                 <p data-lang-key="partner-radaz-desc">Empresa de tecnología de radares para soluciones avanzadas en minería y energía.</p>
             </div>
         </div>
@@ -548,7 +557,7 @@
                 'sector2-title': 'Energia',
                 'sector2-desc': 'Soluções em energias renováveis, armazenamento, transmissão, eficiência energética e digitalização.',
                 'sector3-title': 'Meio Ambiente',
-                'sector3-desc': 'Gestão ambiental, controle de riesgos, monitoramento hídrico, tecnologias de sustentabilidade.',
+                'sector3-desc': 'Gestão ambiental, controle de riscos, monitoramento hídrico, tecnologias de sustentabilidade.',
                 'sector4-title': 'Defesa',
                 'sector4-desc': 'Importação de instrumentos especializados e novas tecnologias para operações de defesa e segurança.',
                 'clients-title': 'Clientes e Partners',
